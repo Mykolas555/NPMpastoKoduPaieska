@@ -1,7 +1,10 @@
 const form = () => {
     return `
     <div class="form-group">
-        <input type="text" class="form-control" placeholder="Jusu adresas">
+        <input type="text" class="form-control city" placeholder="Miestas">
+    </div>
+    <div class="form-group">
+        <input type="text" class="form-control term" placeholder="Jusu adresas">
     </div>
     <div class="form-group">
         <input type="text" class="form-control result" readonly>
