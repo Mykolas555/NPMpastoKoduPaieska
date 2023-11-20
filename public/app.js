@@ -28,9 +28,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+/* harmony import */ var _searchCode__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./searchCode */ "./src/modules/searchCode.js");
+
 var ajaxService = function ajaxService(address, city) {
   var url = "https://api.postit.lt/v2/?city=";
-  var key = "UNFYHJYNHGwWmFmG5Go1";
+  var key = "eNwcDIxJWG3ExMPmoeot";
   return fetch("".concat(url).concat(city, "&address=").concat(address, "$key=").concat(key)).then(function (response) {
     return response.json();
   });
@@ -100,7 +102,7 @@ var searchCode = function searchCode() {
     (0,_ajaxService__WEBPACK_IMPORTED_MODULE_0__["default"])(searchTerm, City).then(function (result) {
       return searchResponse = result;
     })
-    //.then(()document.querySelector)
+    //.then(()=>document.querySelector(".result").innerHTML=`${result}`)
     .then(function () {
       return console.log(searchResponse);
     });

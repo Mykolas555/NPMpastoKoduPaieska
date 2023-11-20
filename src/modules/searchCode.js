@@ -8,7 +8,7 @@ const searchCode =()=>{
         let searchResponse;
         ajaxService(searchTerm, City)
         .then(result=>searchResponse=result)
-        //.then(()document.querySelector)
+        //.then(()=>document.querySelector(".result").innerHTML=`${result}`)
         .then(()=>console.log(searchResponse))
     })
 }
