@@ -8,8 +8,15 @@ const searchCode =()=>{
         let searchResponse;
         ajaxService(searchTerm, City)
         .then(result=>searchResponse=result)
-        //.then(()=>document.querySelector(".result").innerHTML=`${result}`)
         .then(()=>console.log(searchResponse))
+        .then(()=>{
+            const resultElement = document.querySelector(".result");
+                if (searchResponse.data[0].post_code !== null) {
+                    resultElement.value = searchResponse.data[0].post_code;
+                } else {
+                    resultElement.value = "nerastas";
+            }
+        })
     })
 }
 

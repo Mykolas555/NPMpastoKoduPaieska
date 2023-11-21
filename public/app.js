@@ -35,6 +35,8 @@ var ajaxService = function ajaxService(address, city) {
   var key = "eNwcDIxJWG3ExMPmoeot";
   return fetch("".concat(url).concat(city, "&address=").concat(address, "$key=").concat(key)).then(function (response) {
     return response.json();
+  })["catch"](function (error) {
+    return alert(error);
   });
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ajaxService);
@@ -101,10 +103,15 @@ var searchCode = function searchCode() {
     var searchResponse;
     (0,_ajaxService__WEBPACK_IMPORTED_MODULE_0__["default"])(searchTerm, City).then(function (result) {
       return searchResponse = result;
-    })
-    //.then(()=>document.querySelector(".result").innerHTML=`${result}`)
-    .then(function () {
+    }).then(function () {
       return console.log(searchResponse);
+    }).then(function () {
+      var resultElement = document.querySelector(".result");
+      if (searchResponse.data[0].post_code !== null) {
+        resultElement.value = searchResponse.data[0].post_code;
+      } else {
+        resultElement.value = "nerastas";
+      }
     });
   });
 };

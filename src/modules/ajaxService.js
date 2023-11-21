@@ -5,6 +5,7 @@ const ajaxService = (address, city) => {
     const key = "eNwcDIxJWG3ExMPmoeot";
     return fetch (`${url}${city}&address=${address}$key=${key}`)
     .then (response=>response.json())
+    .catch(error => alert(error))
 }
 
 export default ajaxService
